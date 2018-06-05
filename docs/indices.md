@@ -84,8 +84,7 @@ import {Entity, PrimaryGeneratedColumn, Column, Index} from "typeorm";
 
 @Entity()
 @Index(["firstName", "lastName"])
-@Index(["lastName", "middleName"])
-@Index(["firstName", "lastName", "middleName"], { unique: true })
+@Index(["firstName", "middleName", "lastName"], { unique: true })
 export class User {
     
     @PrimaryGeneratedColumn()
@@ -95,10 +94,10 @@ export class User {
     firstName: string;
     
     @Column()
-    lastName: string;
-    
-    @Column()
     middleName: string;
+
+    @Column()
+    lastName: string;
 }
 ```
 
